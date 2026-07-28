@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@200..800&display=swap');
+
+*{
+    font-family: "Changa", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: auto;
+  font-style: normal;
+
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body{
+
+    min-height: 100vh;
+
+    background-image: url(background-space.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.013);
+    backdrop-filter: blur(15px);
+    border-radius: 1em;
+    padding: 3em 2em;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+
+    width: min(90%, 800px);
+    min-height: min-content;
+    
+}
+
+
+h1{
+    font-size: 6em;
+    font-weight: 600;
+    text-align: center;
+
+}
+
+hr{
+    width: 100%;
+    background-color: white;
+    height: 3px;
+    border-radius: 1em;
+    border: none;
+}
+
+.timer{
+    font-size: clamp(4rem, 15vw, 10rem);
+    font-weight: 700;
+}
+
+
+
+.progress{
+
+    width: 90%;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    
+    padding: 1rem;
+}
+
+.track{
+    position: relative;
+
+    flex: 1;
+    height: 8px;
+
+    background: linear-gradient(to bottom, white, rgb(207, 207, 207), rgb(132, 132, 132), rgb(207, 207, 207), white);
+
+    box-shadow: 0 0 20px rgba(238, 238, 238, 0.72);
+    border-radius: 100px;
+
+    animation: brillitos 4s linear infinite;
+}
+
+@keyframes brillitos {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 0 50px;
+    }
+}
+
+
+
+
+.rocket{
+    position: absolute;
+    left: 0;
+    top: -18px;
+    transform: translate(-50%);
+    font-size: 2rem;
+
+    transition: left 1s linear;
+    animation: float 2s ease-in-out infinite;
+
+    z-index: 1;
+    
+}
+
+
+@keyframes floatRocket{
+
+    0%{
+        transform: translateX(-50%) translateY(0);
+    }
+    50%{
+        transform: translateX(-50%) translateY(-6px);
+    }
+    100%{
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.flying{
+    animation: floatRocket .8s ease-in-out infinite;
+
+
+}
+
+
+
+
+
+
+
+.moon-container{
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 60px;
+    height: 60px;
+}
+
+
+.moon-container::before {
+    content: "";
+
+    position: absolute;
+
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(240, 223, 126, 0.874);
+
+    filter: blur(15px);
+
+    opacity: 0;
+
+    transition: opacity .5s;
+}
+
+.moon{
+    position: relative;
+    z-index: 1;
+
+}
+
+
+.shine::before{
+    opacity: 1;
+}
+
+
+.planet, .moon {
+    font-size: 2rem;
+}
+
+
+.buttons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+    padding: 4em;
+}
+
+.btn-wrapper{
+    display: flex;
+    gap: 2em;
+    flex-wrap: wrap;
+}
+
+button{
+    font-size: 1em;
+    font-weight: 500;
+    letter-spacing: .5px;
+    padding: .25em 1em;
+    border-radius: .5em;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    border: 1px solid transparent;
+}
+
+button:hover{
+    transform: translateY(-0.25em);
+    border-color:white;
+     box-shadow: 0 0 10px rgba(238, 238, 238, 0.72);
+}
+
+
+#minutes{
+    text-align: center;
+    appearance: textfield;
+
+    width: min(120px, 100%);
+    padding: .25em 1em;
+    font-size: 1em;
+    font-weight: 200;
+
+
+}
+#minutes::-webkit-outer-spin-button,
+#minutes::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#minutes:focus{
+    border: 2px solid black;
+    outline: none;
+}
+
+#set-time{
+    background-color: #252525;
+    color: white;
+}
+
+#start{
+    background-color: rgb(45, 158, 32);
+}
+
+#stop{
+    background-color: red;
+}
+
+#reset{
+    background-color: rgb(31, 92, 166);
+}
+
+
+
+@media (max-width: 600px){
+
+    .container{
+        padding: 2rem 1.5rem;
+    }
+
+    .btn-wrapper{
+        flex-direction: column;
+        width: 100%;
+    }
+
+    button{
+        width: 100%;
+    }
+
+}
