@@ -38,7 +38,7 @@ body{
     background-color: rgba(255, 255, 255, 0.013);
     backdrop-filter: blur(15px);
     border-radius: 1em;
-    padding: 3em 2em;
+    padding: clamp(1.5rem, 4vw, 3rem);
     border: 2px solid rgba(255, 255, 255, 0.3);
 
     width: min(90%, 800px);
@@ -63,7 +63,8 @@ hr{
 }
 
 .timer{
-    font-size: clamp(4rem, 15vw, 10rem);
+    font-size: clamp(4rem, 12vw, 10rem);
+
     font-weight: 700;
 }
 
@@ -284,3 +285,45 @@ button:hover{
     }
 
 }
+
+
+@media (max-width: 768px){
+
+     .container{
+        width: 95%;
+        padding: 2em 1em;
+        gap: 1.5em;
+    }
+
+    .title{
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+    .timer{
+        font-size: 5rem;
+    }
+
+    .progress{
+        width: 100%;
+    }
+
+    .btn-wrapper{
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    button{
+        flex: 1;
+        min-width: 90px;
+    }
+
+    #minutes{
+        width: 100px;
+    }
+}
+
+
+
+
